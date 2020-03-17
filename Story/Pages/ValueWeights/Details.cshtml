@@ -1,0 +1,36 @@
+﻿@page
+@model Story.Pages.ValueWeights.DetailsModel
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+
+<div>
+    <h4>ValueWeight</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ValueWeight.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ValueWeight.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ValueWeight.Hint)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ValueWeight.Hint)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.ValueWeight.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
+</body>
+</html>
