@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Story.Data;
 
-namespace Request.Migrations
+namespace Story.Migrations
 {
     [DbContext(typeof(StoryContext))]
-    partial class RequestContextModelSnapshot : ModelSnapshot
+    [Migration("20200318193415_RemoveSortOrderFromStoryAddToStatus")]
+    partial class RemoveSortOrderFromStoryAddToStatus
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

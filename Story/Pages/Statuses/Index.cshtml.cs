@@ -23,7 +23,9 @@ namespace Story.Pages.Statuses
 
         public async Task OnGetAsync()
         {
-            Status = await _context.Status.ToListAsync();
+            Status = await _context.Status
+                .OrderBy(s => s.SortOrder)
+                .ToListAsync();
         }
     }
 }

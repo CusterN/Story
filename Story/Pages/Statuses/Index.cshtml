@@ -10,7 +10,7 @@
 </head>
 <body>
     <p>
-        <a asp-page="Create">Create New</a>
+        <a asp-page="Create" class="btn btn-success">Create New</a>
     </p>
     <table class="table table-striped">
         <thead>
@@ -18,22 +18,32 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Status[0].Description)
                 </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Status[0].Hint)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Status[0].SortOrder)
+                </th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
             @foreach (var item in Model.Status)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Description)
-                    </td>
-                    <td>
-                        <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                        <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                        <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-                    </td>
-                </tr>
+            <tr>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Description)</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Hint)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SortOrder)
+                </td>
+                <td>
+                    <a asp-page="./Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
             }
         </tbody>
     </table>

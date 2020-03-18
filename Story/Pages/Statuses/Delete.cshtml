@@ -21,12 +21,24 @@
             <dd class="col-sm-10">
                 @Html.DisplayFor(model => model.Status.Description)
             </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Status.Hint)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Status.Hint)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Status.SortOrder)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Status.SortOrder)
+            </dd>
         </dl>
 
         <form method="post">
             <input type="hidden" asp-for="Status.Id" />
             <input type="submit" value="Delete" class="btn btn-danger" /> |
-            <a asp-page="./Index">Back to List</a>
+            <a asp-page="./Index" class="btn btn-primary">Back to List</a>
         </form>
     </div>
 </body>
