@@ -12,6 +12,7 @@ namespace Story.Models
         [Required] public string Description { get; set; }
         [Required] public string Hint { get; set; }
         [Required] public Boolean Visible { get; set; }
+        public int SortOrder { get; set; }
 
         public List<Story> Stories { get; set; }
     }

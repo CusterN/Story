@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Story.Data;
 
-namespace Request.Migrations
+namespace Story.Migrations
 {
     [DbContext(typeof(StoryContext))]
-    partial class RequestContextModelSnapshot : ModelSnapshot
+    [Migration("20200318192754_AddSortOrderToStory")]
+    partial class AddSortOrderToStory
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -88,9 +90,6 @@ namespace Request.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("SortOrder")
-                        .HasColumnType("int");
-
                     b.Property<bool>("Visible")
                         .HasColumnType("bit");
 
@@ -118,6 +117,9 @@ namespace Request.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("GroupId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SortOrder")
                         .HasColumnType("int");
 
                     b.Property<int>("StatusId")

@@ -15,6 +15,7 @@ namespace Story.Models
         [Required] public string Body { get; set; }
         [Required] public string Creator { get; set; }
         [Required] public Boolean Visible { get; set; }
+        
 
         public List<Comment> Comments { get; set; }
 
