@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Story.Data;
 
-namespace Request.Migrations
+namespace Story.Migrations
 {
     [DbContext(typeof(StoryContext))]
-    partial class RequestContextModelSnapshot : ModelSnapshot
+    [Migration("20200327115446_AddEffortWeightAndRemoveVisibleFlags")]
+    partial class AddEffortWeightAndRemoveVisibleFlags
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -61,9 +63,6 @@ namespace Request.Migrations
                     b.Property<string>("Hint")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Weight")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -227,9 +226,6 @@ namespace Request.Migrations
                     b.Property<string>("Hint")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Weight")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

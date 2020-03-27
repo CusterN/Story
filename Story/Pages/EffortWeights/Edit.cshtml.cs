@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Story.Data;
 using Story.Models;
 
-namespace Story.Pages
+namespace Story.Pages.EffortWeights
 {
     public class EditModel : PageModel
     {
@@ -21,7 +21,7 @@ namespace Story.Pages
         }
 
         [BindProperty]
-        public Story.Models.Story Story { get; set; }
+        public EffortWeight EffortWeight { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -30,23 +30,12 @@ namespace Story.Pages
                 return NotFound();
             }
 
-            Story = await _context.Story
-                .Include(s => s.Group)
-                .Include(s => s.Status)
-                .Include(s => s.ValueFrequency)
-                .Include(s => s.EffortWeight)
-                .Include(s => s.ValueType).FirstOrDefaultAsync(m => m.Id == id);
+            EffortWeight = await _context.EffortWeight.FirstOrDefaultAsync(m => m.Id == id);
 
-            if (Story == null)
+            if (EffortWeight == null)
             {
                 return NotFound();
             }
-            ViewData["GroupId"] = new SelectList(_context.Group, "Id", "Description");
-            ViewData["StatusId"] = new SelectList(_context.Set<Status>(), "Id", "Description");
-            ViewData["ValueFrequencyId"] = new SelectList(_context.Set<ValueFrequency>(), "Id", "Description");
-            ViewData["ValueTypeId"] = new SelectList(_context.Set<Models.ValueType>(), "Id", "Description");
-            ViewData["ValueWeightId"] = new SelectList(_context.Set<Models.ValueWeight>(), "Id", "Description");
-            ViewData["EffortWeightId"] = new SelectList(_context.Set<Models.EffortWeight>(), "Id", "Description");
             return Page();
         }
 
@@ -59,7 +48,7 @@ namespace Story.Pages
                 return Page();
             }
 
-            _context.Attach(Story).State = EntityState.Modified;
+            _context.Attach(EffortWeight).State = EntityState.Modified;
 
             try
             {
@@ -67,7 +56,7 @@ namespace Story.Pages
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!StoryExists(Story.Id))
+                if (!EffortWeightExists(EffortWeight.Id))
                 {
                     return NotFound();
                 }
@@ -77,12 +66,12 @@ namespace Story.Pages
                 }
             }
 
-            return RedirectToPage("./Details", new { Story.Id });
+            return RedirectToPage("./Index");
         }
 
-        private bool StoryExists(int id)
+        private bool EffortWeightExists(int id)
         {
-            return _context.Story.Any(e => e.Id == id);
+            return _context.EffortWeight.Any(e => e.Id == id);
         }
     }
 }

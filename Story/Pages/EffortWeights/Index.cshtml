@@ -1,5 +1,5 @@
 ﻿@page
-@model Story.Pages.ValueWeights.IndexModel
+@model Story.Pages.EffortWeights.IndexModel
 
 <!DOCTYPE html>
 
@@ -16,19 +16,19 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ValueWeight[0].Description)
+                @Html.DisplayNameFor(model => model.EffortWeight[0].Description)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ValueWeight[0].Hint)
+                @Html.DisplayNameFor(model => model.EffortWeight[0].Hint)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ValueWeight[0].Weight)
+                @Html.DisplayNameFor(model => model.EffortWeight[0].Weight)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.ValueWeight) {
+@foreach (var item in Model.EffortWeight) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Description)

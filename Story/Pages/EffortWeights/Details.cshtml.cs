@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Story.Data;
 using Story.Models;
 
-namespace Story.Pages
+namespace Story.Pages.EffortWeights
 {
     public class DetailsModel : PageModel
     {
@@ -19,8 +19,7 @@ namespace Story.Pages
             _context = context;
         }
 
-        public Story.Models.Story Story { get; set; }
-        public IList<Comment> Comment { get; set; }
+        public EffortWeight EffortWeight { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -29,17 +28,9 @@ namespace Story.Pages
                 return NotFound();
             }
 
-            Story = await _context.Story
-                .Include(s => s.Group)
-                .Include(s => s.Status)
-                .Include(s => s.ValueFrequency)
-                .Include(s => s.ValueWeight)
-                .Include(s => s.EffortWeight)
-                .Include(s => s.ValueType).FirstOrDefaultAsync(m => m.Id == id);
+            EffortWeight = await _context.EffortWeight.FirstOrDefaultAsync(m => m.Id == id);
 
-            Comment = await _context.Comment.Where(c => c.StoryId == id).OrderByDescending(c => c.CreateDate).ToListAsync();
-
-            if (Story == null)
+            if (EffortWeight == null)
             {
                 return NotFound();
             }

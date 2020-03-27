@@ -34,6 +34,9 @@
                     @Html.DisplayNameFor(model => model.Story[0].ValueWeight)
                 </th>
                 <th>
+                    @Html.DisplayNameFor(model => model.Story[0].EffortWeight)
+                </th>
+                <th>
                     @Html.DisplayNameFor(model => model.Story[0].ValueFrequency)
                 </th>
                 <th>
@@ -63,6 +66,9 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.ValueWeight.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EffortWeight.Description)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.ValueFrequency.Description)

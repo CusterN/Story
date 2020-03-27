@@ -42,7 +42,13 @@
                 @Html.DisplayNameFor(model => model.Story.ValueWeight)
             </dt>
             <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Story.ValueWeightId)
+                @Html.DisplayFor(model => model.Story.ValueWeight.Description)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Story.EffortWeight)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Story.EffortWeight.Description)
             </dd>
             <dt class="col-sm-2">
                 @Html.DisplayNameFor(model => model.Story.ValueFrequency)

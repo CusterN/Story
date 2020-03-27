@@ -14,13 +14,14 @@ namespace Story.Models
         [Required] public string Title { get; set; }
         [Required] public string Body { get; set; }
         [Required] public string Creator { get; set; }
-        [Required] public Boolean Visible { get; set; }
         
-
         public List<Comment> Comments { get; set; }
 
         [Required] public int ValueWeightId { get; set; }
         public virtual ValueWeight ValueWeight { get; set; }
+
+        public int? EffortWeightId { get; set; }
+        public virtual EffortWeight EffortWeight { get; set; }
 
         [Required] public int ValueFrequencyId { get; set; }
         public virtual ValueFrequency ValueFrequency { get; set; }

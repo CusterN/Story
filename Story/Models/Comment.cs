@@ -12,7 +12,6 @@ namespace Story.Models
         [Required] public DateTime CreateDate { get; set; }
         [Required] public string Creator { get; set; }
         [Required] public string Body { get; set; }
-        [Required] public Boolean Visible { get; set; }
 
         [Required] public int StoryId { get; set; }
         public virtual Story Story { get; set; }

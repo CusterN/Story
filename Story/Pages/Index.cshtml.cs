@@ -29,6 +29,8 @@ namespace Story.Pages
                 .Include(s => s.ValueFrequency)
                 .Include(s => s.ValueType)
                 .Include(s => s.ValueWeight)
+                .Include(s => s.EffortWeight)
+                .Include(s => s.Comments)
                 .OrderBy(s => s.CreateDate)
                 .OrderBy(s => s.Status.SortOrder)
                 .ToListAsync();

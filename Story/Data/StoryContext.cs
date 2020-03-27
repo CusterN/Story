@@ -27,5 +27,7 @@ namespace Story.Data
         public DbSet<Story.Models.Comment> Comment { get; set; }
 
         public DbSet<Story.Models.ValueWeight> ValueWeight { get; set; }
+
+        public DbSet<Story.Models.EffortWeight> EffortWeight { get; set; }
     }
 }
