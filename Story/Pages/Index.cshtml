@@ -33,7 +33,7 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Story[0].Creator)
                 </th>
-                <th>
+                <th hidden>
                     @Html.DisplayNameFor(model => model.Story[0].Group)
                 </th>
                 <th>
@@ -42,7 +42,7 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Story[0].EffortWeight)
                 </th>
-                <th>
+                <th hidden>
                     @Html.DisplayNameFor(model => model.Story[0].ValueFrequency)
                 </th>
                 <th hidden>
@@ -65,12 +65,12 @@
                     @Html.DisplayFor(modelItem => item.Status.Description)
                 </td>
                 <td>
-                    <a asp-page="./Details" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Title)</a>
+                    @Html.DisplayFor(modelItem => item.Title)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Creator)
                 </td>
-                <td>
+                <td hidden>
                     @Html.DisplayFor(modelItem => item.Group.Description)
                 </td>
                 <td>
@@ -79,7 +79,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.EffortWeight.Description)
                 </td>
-                <td>
+                <td hidden>
                     @Html.DisplayFor(modelItem => item.ValueFrequency.Description)
                 </td>
                 <td hidden>
@@ -88,7 +88,7 @@
                 <td>
                     <font size="5">
                         <a style="color:#5cb85c" asp-page="Comments/Create" data-toggle="tooltip" data-placement="top" title="Add a comment" asp-route-StoryId="@item.Id" class="fas fa-comment-alt"></a>
-                        <a style="color:#f0ad4e" asp-page="Edit" data-toggle="tooltip" data-placement="top" title="Edit the supplier" asp-route-StoryId="@item.Id" class="fas fa-edit"></a>
+                        <a style="color:#f0ad4e" asp-page="Edit" data-toggle="tooltip" data-placement="top" title="Edit the supplier" asp-route-Id="@item.Id" class="fas fa-edit"></a>
                     </font>
                 </td>
             </tr>
