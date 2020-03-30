@@ -65,7 +65,7 @@
                     @Html.DisplayFor(modelItem => item.Status.Description)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Title)
+                    <a asp-page="Details" asp-route-Id="@item.Id"> @Html.DisplayFor(modelItem => item.Title)</a>
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Creator)
